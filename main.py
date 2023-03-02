@@ -103,37 +103,36 @@ while True:
                 difficulty += 1
                 enemy_speed += 1
                 # Draw the game objects
-screen.fill(white)
+    screen.fill(white)
 
 
-pygame.draw.rect(screen, black, (player_x, player_y, player_width, player_height))
+    pygame.draw.rect(screen, black, (player_x, player_y, player_width, player_height))
 
 
-pygame.draw.rect(screen, red, (enemy_x, enemy_y, enemy_width, enemy_height))
+    pygame.draw.rect(screen, red, (enemy_x, enemy_y, enemy_width, enemy_height))
 
 
-if bullet_state == "fire":
-    pygame.draw.rect(screen, black, (bullet_x, bullet_y, bullet_width, bullet_height))
+    if bullet_state == "fire":
+        pygame.draw.rect(screen, black, (bullet_x, bullet_y, bullet_width, bullet_height))
 
 
-score_text = game_font.render("Score: " + str(score), True, black)
-screen.blit(score_text, (10, 10))
+    score_text = game_font.render("Score: " + str(score), True, black)
+    screen.blit(score_text, (10, 10))
 
 
-difficulty_text = game_font.render("Difficulty: " + str(difficulty), True, black)
-screen.blit(difficulty_text, (10, 40))
+    difficulty_text = game_font.render("Difficulty: " + str(difficulty), True, black)
+    screen.blit(difficulty_text, (10, 40))
 
 
-if game_over:
-    screen.blit(game_over_text, game_over_rect)
+    if game_over:
+        screen.blit(game_over_text, game_over_rect)
 
 
-pygame.display.update()
+    pygame.display.update()
 
-# Check for game over
-if enemy_y + enemy_height > player_y:
-    game_over = True
+    # Check for game over
+    if enemy_y + enemy_height > player_y:
+        game_over = True
 
-# Set the game speed for fps
-clock.tick(60)
-
+    # Set the game speed for fps
+    clock.tick(60)
